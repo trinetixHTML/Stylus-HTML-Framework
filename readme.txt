@@ -47,6 +47,13 @@
 				.class
 					spriteImage($s-box)
 					spriteWidth($s-box)
+			или
+				.class
+					&:before
+						content: ''
+						position: absolute
+						sprite($s-box)
+						left: -(spriteWidth($s-box))
 		2.3 spriteHeight($s-исходное_имя_картинки)
 			вернет высоту картинки.
 			пример использования 
