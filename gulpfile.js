@@ -1,12 +1,16 @@
-var gulp    = require('gulp'),
-	stylus  = require('gulp-stylus'),
-	postcss = require('gulp-postcss'),
-    sprite  = require('gulp-sprite-generator'),
+var gulp         = require('gulp'),
+	stylus       = require('gulp-stylus'),
+	postcss      = require('gulp-postcss'),
+	spritesmith  = require('gulp.spritesmith'),
 	autoprefixer = require('autoprefixer-core');
 
+var srcStyl  = './src/stylus/';
+var srcImgs  = './src/images/';
+var publCss  = './public/css/';
+var publImgs = './public/images/';
 
 gulp.task('stylus', function () {
-	gulp.src('./src/stylus/main.styl')
+	gulp.src(srcStyl+'main.styl')
 			.pipe(stylus())
 			.on('error', console.log)
 			.pipe(postcss([ autoprefixer({ browsers: [
@@ -17,31 +21,34 @@ gulp.task('stylus', function () {
 				'Opera 12.1'
 			] }) ]))
 			.on('error', console.log)
-			.pipe(gulp.dest('./public/css/'));
+			.pipe(gulp.dest(publCss));
 });
 
-gulp.task('sprites', function() {
-    var spriteOutput;
-    spriteOutput = gulp.src("./public/css/*.css")
-        .pipe(sprite({
-		    baseUrl:         "./",
-            spriteSheetName: "sprite.png",
-            spriteSheetPath: "../images",
-		    algorithm:       "binary-tree",
-		    padding:         10
-        }));
-    spriteOutput.css.pipe(gulp.dest("./public/css"));
-    spriteOutput.img.pipe(gulp.dest("./public/images"));
+
+gulp.task('sprites', function () {
+	var spriteData = gulp.src(srcImgs+'sprites/*').pipe(spritesmith({
+		imgName: 'sprite.png',
+		cssName: '_sprite.styl',
+		cssFormat: 'stylus',
+		algorithm: 'binary-tree',
+		padding: 10,
+		cssTemplate: 'stylus.template.mustache',
+		cssVarMap: function(sprite) {
+			sprite.name = 's-' + sprite.name
+		}
+	}));
+	spriteData.img.pipe(gulp.dest(publImgs));
+	spriteData.css.pipe(gulp.dest(srcStyl));
 });
 
 
 gulp.task('watch', function() {
-	gulp.watch('./src/stylus/*.styl', ['stylus']);
-	gulp.watch('./public/css/*.css',  ['sprites']);
+	gulp.watch(srcImgs+'/sprites/*',  ['sprites']);
+	gulp.watch(srcStyl+'*.styl', ['stylus']);
 });
 
 gulp.task('default', [
-	'watch',
+	'sprites',
 	'stylus',
-	'sprites'
+	'watch'
 ]);

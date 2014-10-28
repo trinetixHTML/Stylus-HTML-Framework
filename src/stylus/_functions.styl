@@ -22,6 +22,51 @@ box()
 	-moz-box-sizing: border-box
 	-webkit-box-sizing: border-box
 
+
+
+$spritePath = '../images/'
+spriteWidth($sprite)
+	$sprite[4]
+
+spriteHeight($sprite)
+	$sprite[5]
+
+spritePosition($sprite)
+	background-position: $sprite[2] $sprite[3]
+
+spriteImage($sprite)
+	background-image: url($spritePath+$sprite[8])
+
+sprite($sprite)
+	spriteImage($sprite)
+	spritePosition($sprite)
+	width:  spriteWidth($sprite)
+	height: spriteHeight($sprite)
+
+spriteUrl($sprite)
+	unquote("url("+$spritePath+$sprite[8]+") "+ $sprite[2] +" "+ $sprite[3]+"  no-repeat")
+
+
+
+.class
+	&:before
+		content: ''
+		position: absolute
+		sprite($s-box)
+		left: -(spriteWidth($s-box))
+
+.body
+	background: spriteUrl($s-box)
+
+.body1
+	background: spriteUrl($s-arrow)
+
+.body2
+	spriteImage($s-npm)
+	spritePosition($s-npm)
+
+
+
 .xyu
 	box-sizing: border-box
 	border-radius: 5px;
@@ -31,7 +76,6 @@ box()
 	font-size: 14px
 	opacity: 0.50;
 	background-color: rgba(255,255,288,0.78)
-
 
 
 /*

@@ -1,6 +1,24 @@
+.class:before {
+  content: '';
+  position: absolute;
+  background-image: url("../images/sprite.png");
+  background-position: 0px 0px;
+  width: 512px;
+  height: 512px;
+  left: -512px;
+}
+.body {
+  background: url(../images/sprite.png) 0px 0px  no-repeat;
+}
+.body1 {
+  background: url(../images/sprite.png) -522px 0px  no-repeat;
+}
+.body2 {
+  background-image: url("../images/sprite.png");
+  background-position: 0px -522px;
+}
 .xyu {
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 5px;
   box-shadow: 0 0 3px #000;
   background: #000;
@@ -67,24 +85,6 @@ select {
   clear: both;
   background: #000;
   border-radius: 5px;
-}
-body {
-  background-image: url("../images/sprite.png");
-    background-position: -0px -0px;
-    background-size: 778px 724px!important;
-}
-.body {
-  background-image: url("../images/arrow.png"); /* @meta {"sprite": {"skip": true}} */
-}
-.body1 {
-  background-image: url("../images/sprite.png");
-    background-position: -522px -0px;
-    background-size: 778px 724px!important;
-}
-.body2 {
-  background-image: url("../images/sprite.png");
-    background-position: -0px -522px;
-    background-size: 778px 724px!important;
 }
 .footer__right {
   float: right;
