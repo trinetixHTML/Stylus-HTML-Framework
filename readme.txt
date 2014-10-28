@@ -12,3 +12,12 @@
 
 
 
+-------------------------
+--------- INFO ----------
+-------------------------
+1. собирается все через gulp. - https://github.com/gulpjs/gulp/ он намного быстрее чем grunt. настройку gulp пока не описываю. добавлю позже. хотя не уверен что нужно - в доках по ссылкам все есть 
+2. в качестве css препроцессора используется stylus. документация - http://learnboost.github.io/stylus/
+3. вендорные префиксы проставляются постпроцессором autoprefixer - https://github.com/postcss/autoprefixer
+4. спрайты генерируются с помошью https://github.com/gobwas/gulp-sprite-generator
+
+
