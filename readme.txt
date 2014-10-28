@@ -43,6 +43,7 @@
 					spriteImage($s-box)
 		2.3 spriteWidth($s-исходное_имя_картинки)
 			вернет ширину картинки.
+				width: 512px;
 			пример использования 
 				.class
 					spriteImage($s-box)
@@ -56,12 +57,14 @@
 						left: -(spriteWidth($s-box))
 		2.3 spriteHeight($s-исходное_имя_картинки)
 			вернет высоту картинки.
+				height: 512px;
 			пример использования 
 				.class
 					spriteImage($s-box)
 					spriteHeight($s-box)
 		2.3 spritePosition($s-исходное_имя_картинки)
 			вернет высоту background-position.
+				background-position: 0px 0px;
 			пример использования 
 				.class
 					spriteImage($s-box)
