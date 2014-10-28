@@ -27,13 +27,13 @@ gulp.task('stylus', function () {
 
 gulp.task('sprites', function () {
 	var spriteData = gulp.src(srcImgs+'sprites/*').pipe(spritesmith({
-		imgName: 'sprite.png',
-		cssName: '_sprite.styl',
-		cssFormat: 'stylus',
-		algorithm: 'binary-tree',
-		padding: 10,
+		imgName:     'sprite.png',
+		cssName:     '_sprite.styl',
+		cssFormat:   'stylus',
+		algorithm:   'binary-tree',
+		padding:     10,
 		cssTemplate: 'stylus.template.mustache',
-		cssVarMap: function(sprite) {
+		cssVarMap:   function(sprite) {
 			sprite.name = 's-' + sprite.name
 		}
 	}));
@@ -43,8 +43,8 @@ gulp.task('sprites', function () {
 
 
 gulp.task('watch', function() {
-	gulp.watch(srcImgs+'/sprites/*',  ['sprites']);
-	gulp.watch(srcStyl+'*.styl', ['stylus']);
+	gulp.watch(srcImgs+'/sprites/*', ['sprites']);
+	gulp.watch(srcStyl+'*.styl',     ['stylus']);
 });
 
 gulp.task('default', [
