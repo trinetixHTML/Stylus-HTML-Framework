@@ -1,0 +1,53 @@
+
+html, body, a, input, textarea, select
+	font-family: $fontFam
+
+.pagewrap
+	position: relative
+	min-height: 100%
+	color: $colorText
+//	bga(#c0c0c0, 80%)
+
+
+/*--- header ---*/
+.header
+	position: relative
+	height: 200px
+	background: gray
+	br(5px)
+	border: 1px solid red
+
+/*--- footer ---*/
+.footer
+	clear: both
+	position: relative
+	background: #c0c0c0
+	margin-top: -($footer__height)
+	height: $footer__height
+
+.footer__inn
+	width: $page__width
+	margin: 0 auto
+	height: $footer__height
+
+
+
+
+/*--- sidebar ---*/
+.sidebar
+	width: 280px
+	float: right
+	margin: 0
+
+
+
+/*--- CONTENT ---*/
+.center
+	width: $page__width
+	margin: 0 auto
+	padding-bottom: $footer__height
+
+.content
+	width: 600px
+	float: left
+	border: 1px solid red
