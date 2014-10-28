@@ -1,29 +1,7 @@
 
-
-br()
-	-webkit-border-radius: arguments
-	-moz-border-radius: arguments
-	border-radius: arguments
-
-bs()
-	-moz-box-shadow: arguments
-	-webkit-box-shadow: arguments
-	box-shadow: arguments
-
-lg($val1, $val2)
-	background-color: $val1
-	background-image: -moz-linear-gradient(top, $val1 0%, $val2 100%)
-	background-image: -o-linear-gradient(top, $val1 0%, $val2 100%)
-	background-image: -webkit-linear-gradient(top, $val1 0%, $val2 100%)
-	background-image: linear-gradient(top, $val1 0%, $val2 100%)
-
-box()
-	box-sizing: border-box
-	-moz-box-sizing: border-box
-	-webkit-box-sizing: border-box
-
-
-
+/*****************************************
+sprites
+******************************************/
 $spritePath = '../images/'
 spriteWidth($sprite)
 	$sprite[4]
@@ -45,58 +23,4 @@ sprite($sprite)
 
 spriteUrl($sprite)
 	unquote("url("+$spritePath+$sprite[8]+") "+ $sprite[2] +" "+ $sprite[3]+"  no-repeat")
-
-
-
-.class
-	&:before
-		content: ''
-		position: absolute
-		sprite($s-box)
-		left: -(spriteWidth($s-box))
-
-.body
-	background: spriteUrl($s-box)
-
-.body1
-	background: spriteUrl($s-arrow)
-
-.body2
-	spriteImage($s-npm)
-	spritePosition($s-npm)
-
-
-
-.xyu
-	box-sizing: border-box
-	border-radius: 5px;
-	box-shadow: 0 0 3px black;
-	background: #000
-	background-image: linear-gradient(top, #000 0%, #FFF 100%)
-	font-size: 14px
-	opacity: 0.50;
-	background-color: rgba(255,255,288,0.78)
-
-
-/*
-bga($color, $alpha = 1)
-	ms-filter = ms-filter-hex($color, $alpha)
-	background: rgb($color)
-	background: rgba($color, $alpha)
-	.lt-ie8 &
-		zoom 1
-	.lt-ie9 &
-		background transparent
-		filter s('progid:DXImageTransform.Microsoft.gradient(startColorstr=%s,endColorstr=%s)', ms-filter, ms-filter)
-		&:nth-child(n)
-			filter none
-
-ms-filter-hex($color, $alpha = 1)
-	hex-value = ('0') ('1') ('2') ('3') ('4') ('5') ('6') ('7') ('8') ('9') ('A') ('B') ('C') ('D') ('E') ('F')
-	$red = unquote(hex-value[round(red($color) / 16)] + hex-value[round(red($color) % 16)])
-	$green = unquote(hex-value[round(green($color) / 16)] + hex-value[round(green($color) % 16)])
-	$blue = unquote(hex-value[round(blue($color) / 16)] + hex-value[round(blue($color) % 16)])
-	$alpha-hex = unquote(hex-value[(round(($alpha * 255) / 16) - 1)] + hex-value[(round($alpha * 255) % 16 - 1)])
-	unquote('#') + $alpha-hex + $red + $green + $blue
-*/
 
