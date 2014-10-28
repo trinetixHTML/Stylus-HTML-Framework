@@ -55,21 +55,21 @@
 						position: absolute
 						sprite($s-box)
 						left: -(spriteWidth($s-box))
-		2.3 spriteHeight($s-исходное_имя_картинки)
+		2.4 spriteHeight($s-исходное_имя_картинки)
 			вернет высоту картинки.
 				height: 512px;
 			пример использования 
 				.class
 					spriteImage($s-box)
 					spriteHeight($s-box)
-		2.3 spritePosition($s-исходное_имя_картинки)
+		2.5 spritePosition($s-исходное_имя_картинки)
 			вернет высоту background-position.
 				background-position: 0px 0px;
 			пример использования 
 				.class
 					spriteImage($s-box)
 					spritePosition($s-box)
-		2.3 spriteUrl($s-исходное_имя_картинки)
+		2.6 spriteUrl($s-исходное_имя_картинки)
 			базовая функция. вернет 
 				background: url(../images/sprite.png) 0px 0px  no-repeat;
 			пример использования 
