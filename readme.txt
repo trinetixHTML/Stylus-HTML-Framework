@@ -25,7 +25,8 @@
 4. спрайты генерируются с помощью https://github.com/twolfson/gulp.spritesmith статья на хабр - http://habrahabr.ru/post/227945/
 	использование
 	-------------
-	1. картинки для спрайтов складываем в ./src/images/sprites они автоматически склеятся в ./public/images/sprite.png
+	1. картинки для спрайтов складываем в ./src/images/sprites они автоматически 
+	   склеятся в ./public/images/sprite.png
 	2. для использования в stylus есть следующие функции
 		2.1 sprite($s-исходное_имя_картинки)
 			базовая функция. вернет 
