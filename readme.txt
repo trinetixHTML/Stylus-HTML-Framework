@@ -26,7 +26,7 @@
 	использование
 	1. картинки для спрайтов складываем в ./src/images/sprites они автоматически склеятся в ./public/images/sprite.png
 	2. для использования в stylus есть следующие функции
-		2.1 sprite($-исходное_имя_картинки)
+		2.1 sprite($s-исходное_имя_картинки)
 			базовая функция. вернет 
 				background-image: url("../images/sprite.png");
 				background-position: 0px 0px;
