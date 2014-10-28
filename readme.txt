@@ -22,7 +22,7 @@
 1. собирается все через gulp. - https://github.com/gulpjs/gulp/
 2. в качестве css препроцессора используется stylus. документация - http://learnboost.github.io/stylus/
 3. вендорные префиксы проставляются постпроцессором autoprefixer - https://github.com/postcss/autoprefixer
-4. спрайты генерируются с помощью https://github.com/twolfson/gulp.spritesmith статья на хабр - http://habrahabr.ru/post/227945/
+4. спрайты генерируются с помощью spritesmith - https://github.com/twolfson/gulp.spritesmith статья на хабр - http://habrahabr.ru/post/227945/
 	использование
 	-------------
 	1. картинки для спрайтов складываем в ./src/images/sprites они автоматически 
