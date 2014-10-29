@@ -10,11 +10,16 @@
 	<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	<!--Place favicon.ico in the root directory-->
 	<link rel="stylesheet" href="css/main.css">
+
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
 
 	<!-- определение оси, браузера, устройства -->
 	<script src="js/bowser.js"></script>
 	<script src="js/device.js"></script>
+
+	<!--[if lt IE 10]><script src="js/PIE.js"></script><![endif]-->
+	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
 
 	<script src="js/js.js"></script>
@@ -70,7 +75,11 @@
 	<!-- footer -->
 	<footer class="footer">
 		<div class="footer__holder">
-			footer
+			<ul class="footer__menu">
+				<li><a href="#">home</a></li>
+				<li><a href="#">company</a></li>
+				<li><a href="#">about</a></li>
+			</ul>
 		</div>
 	</footer>
 	<!-- /footer -->
