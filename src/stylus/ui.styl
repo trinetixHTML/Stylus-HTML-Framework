@@ -1,0 +1,48 @@
+
+html, body, a, input, textarea, select
+	font-family: $fontFam
+	color: $colorText
+	font-size: $fontSize
+
+
+h1
+h2,
+h3,
+h4,
+h5,
+h6
+	margin: 0 0 20px 0
+	font-size: 30px
+	font-weight: normal
+	color: $colorText
+
+h2
+	font-size: 25px
+
+h3
+	font-size: 23px
+
+h4
+	font-size: 21px
+
+h5
+	font-size: 18px
+
+h6
+	font-size: 16px
+
+
+a
+	color: $colorLink
+	&:hover
+		text-decoration: none
+
+
+.xyu
+	width: auto
+	border: 1px solid red
+.ie8 .xyu
+	width: 900px
+@media(max-width: 600px)
+	.xyu
+		width: 200px

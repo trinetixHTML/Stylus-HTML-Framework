@@ -7,6 +7,7 @@
 // функции, миксины и тд.
 @import "_functions"
 // reset
+@import "_normalize"
 
 
 
@@ -19,14 +20,32 @@
 
 
 // базовые стили шапки
-@import "header"
+@import "headerWrap"
 
 
 // базовые стили подвала
 @import "footer"
+/*
+@import "footer__menu"
+@import "footer__menu__adaptive"
+*/
 
 
 // базовые стили контента
 @import "content"
+
+
+// костыли
+@import "_helpers"
+
+// пример подключения личного файла стилей для совместной работы над одним блоком
+// в папке stylus создаем (mexico)footer__menu.styl
+// 29.10.2014 - смержить потом
+// паралельная правка блока footerMenu
+//@import "(mexico)footer__menu"
+
+
+
+
 
 

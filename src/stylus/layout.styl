@@ -1,34 +1,43 @@
 
-html, body, a, input, textarea, select
-	font-family: $fontFam
+html, body
+	height: 100%
+
+body
+	min-width: $pageWidthMin
+
+
 
 .pagewrap
 	position: relative
 	min-height: 100%
-	color: $colorText
-//	bga(#c0c0c0, 80%)
 
 
 /*--- header ---*/
 .header
 	position: relative
-	height: 200px
+	background: #c0c0c0
+
+.header__holder
+	min-width: $pageWidthMin
+	max-width: $pageWidthMax
+	height: 100px
+	margin: 0 auto
 	background: gray
-	br(5px)
-	border: 1px solid red
+
 
 /*--- footer ---*/
 .footer
-	clear: both
 	position: relative
 	background: #c0c0c0
-	margin-top: -($footer__height)
-	height: $footer__height
+	margin-top: -($footerHeight)
+	height: $footerHeight
 
-.footer__inn
-	width: $page__width
+.footer__holder
+	min-width: $pageWidthMin
+	max-width: $pageWidthMax
 	margin: 0 auto
-	height: $footer__height
+	height: $footerHeight
+	background: gray
 
 
 
@@ -36,18 +45,22 @@ html, body, a, input, textarea, select
 /*--- sidebar ---*/
 .sidebar
 	width: 280px
-	float: right
-	margin: 0
+	float: left
+	margin: 0 20px 0 0
+	border: 1px solid red
+
 
 
 
 /*--- CONTENT ---*/
-.center
-	width: $page__width
-	margin: 0 auto
-	padding-bottom: $footer__height
-
 .content
-	width: 600px
-	float: left
+	padding-bottom: $footerHeight
+
+.content__holder
+	min-width: $pageWidthMin
+	max-width: $pageWidthMax
+	margin: 0 auto
+
+.middlecoll
+	overflow: hidden
 	border: 1px solid red
