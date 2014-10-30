@@ -4,41 +4,45 @@
 	margin: 0
 	clear: both
 	background: #c0c0c0
-	.header__nav__ul
-		margin: 0
-		padding: 0
-		list-style: none
-		height: 40px
-		border-left: 1px solid #000
-		.header__nav__ul__li
-			position: relative
-			float: left
-			border-right: 1px solid #000
-		.header__nav__ul__li__a
-			display: inline-block
-			padding: 0 20px
-			line-height: 40px
-			font-size: $fontSizeL
-			text-transform: uppercase
-			color: $colorText
-	.header__nav__sub
-		display: none
-		position: absolute
-		left: 0
-		top: 40px
-		margin: 0
-		padding: 0
-		list-style: none
-		border: 1px solid #000
-		border-bottom: 0
-		background: #c0c0c0
-		li
-			padding: 10px 20px
-			border-bottom: 1px solid #000
-			a
-				display: inline-block
-				font-size: $fontSizeM
-				color: $colorText
-	.header__nav__ul__li:hover .header__nav__sub
+.header__nav__ul
+	margin: 0
+	padding: 0
+	list-style: none
+	height: 40px
+	border-left: 1px solid #000
+.header__nav__ul__li
+	position: relative
+	float: left
+	border-right: 1px solid #000
+	&:hover .header__nav__sub
 		display: block
+.header__nav__ul__li__a
+	display: inline-block
+	padding: 0 20px
+	line-height: 40px
+	font-size: $fontSizeL
+	text-transform: uppercase
+	color: $colorText
+
+.header__nav__sub
+	display: none
+	position: absolute
+	font-size: 12px
+	left: 0
+	top: 40px
+	margin: 0
+	padding: 0
+	list-style: none
+	border: 1px solid #000
+	border-bottom: 0
+	background: #c0c0c0
+	li
+		padding: 10px 20px
+		border-bottom: 1px solid #000
+		a
+			display: inline-block
+			font-size: $fontSizeM
+			color: $colorText
+
+
 

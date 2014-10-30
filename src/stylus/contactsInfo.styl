@@ -1,0 +1,21 @@
+
+.contactsInfo
+	padding: 0 20px 0 0 0
+	span,
+	a
+		display: inline-block
+		margin: 0 0 10px 0
+		font-size: $fontSizeM
+		color: $colorText
+		&:before
+			content: ''
+			display: inline-block
+			position: relative
+			top: 3px
+			margin: 0 10px 0 0
+	.mail:before
+		sprite($s-contactsInfo__mail)
+	.phone:before
+		sprite($s-contactsInfo__phone)
+
+
