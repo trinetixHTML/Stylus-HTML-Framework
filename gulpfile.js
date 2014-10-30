@@ -4,7 +4,8 @@ var     gulp         = require('gulp'),
 		postcss      = require('gulp-postcss'),
 		spritesmith  = require('gulp.spritesmith'),
 		autoprefixer = require('autoprefixer-core'),
-		imagemin     = require('gulp-imagemin');
+		imagemin     = require('gulp-imagemin'),
+		minifyCSS    = require('gulp-minify-css');
 
 // переменные с путями
 // пути к исходным файлам из который будет собираться
@@ -64,6 +65,8 @@ gulp.task('stylus', function () {
 			'Firefox ESR',
 			'Opera 12.1'
 		] }) ]))
+		// минимизируем цсс
+		.pipe(minifyCSS())
 		// сохраняем готовый цсс
 		.pipe(gulp.dest(publCss));
 });
