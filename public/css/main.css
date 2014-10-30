@@ -1,3 +1,10 @@
+.qqq {
+  box-sizing: border-box;
+  box-shadow: 0 0 3px #000;
+  -webkit-transform: rotate(7deg);
+      -ms-transform: rotate(7deg);
+          transform: rotate(7deg);
+}
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,cyrillic-ext");
 /* normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
@@ -354,13 +361,13 @@ body {
 ._clearfix:after {
   clear: both;
 }
-.pa {
+._posAbs {
   position: absolute !important;
 }
-.pr {
+._posRel {
   position: relative !important;
 }
-.ps {
+._posStat {
   position: static !important;
 }
 .oh {
@@ -421,27 +428,6 @@ body {
 .pl0 {
   padding-left: 0 !important;
 }
-.fs12 {
-  font-size: 12px !important;
-}
-.fs13 {
-  font-size: 13px !important;
-}
-.fs14 {
-  font-size: 14px !important;
-}
-.fs16 {
-  font-size: 16px !important;
-}
-.fs18 {
-  font-size: 18px !important;
-}
-.fs20 {
-  font-size: 20px !important;
-}
-.fs24 {
-  font-size: 24px !important;
-}
 .tal {
   text-align: left !important;
 }
@@ -483,22 +469,6 @@ body {
 }
 .bl0 {
   border-left: 0 !important;
-}
-.bbd {
-  text-decoration: none !important;
-  border-bottom: 1px dashed;
-}
-.bbd:hover {
-  text-decoration: none !important;
-  border-bottom: 0;
-}
-.bbdo {
-  text-decoration: none !important;
-  border-bottom: 1px dotted;
-}
-.bbdo:hover {
-  text-decoration: none !important;
-  border-bottom: 0;
 }
 .bgn {
   background: none !important;

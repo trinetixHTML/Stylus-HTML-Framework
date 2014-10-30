@@ -1,48 +1,78 @@
 // подключаем плагины
-var gulp         = require('gulp'),
-	stylus       = require('gulp-stylus'),
-	postcss      = require('gulp-postcss'),
-	spritesmith  = require('gulp.spritesmith'),
-	autoprefixer = require('autoprefixer-core');
+var     gulp         = require('gulp'),
+		stylus       = require('gulp-stylus'),
+		postcss      = require('gulp-postcss'),
+		spritesmith  = require('gulp.spritesmith'),
+		autoprefixer = require('autoprefixer-core'),
+		imagemin     = require('gulp-imagemin');
 
 // переменные с путями
 // пути к исходным файлам из который будет собираться
 // стилус
-var srcStyl  = './src/stylus/';
+var srcStyl  = 'src/stylus/';
 // картинки
-var srcImgs  = './src/images/';
+var srcImgs  = 'src/images/';
+// спрайты
+var srcSprts  = 'src/sprites/';
 // пути к финальным вайлам
 // цсс
-var publCss  = './public/css/';
+var publCss  = 'public/css/';
 // картинки
-var publImgs = './public/images/';
+var publImgs = 'public/images/';
+
+
+
+ // регестрируем задачи
+ gulp.task('default', [
+	'watch',
+	'sprites',
+	'stylus',
+	'compress'
+]);
+
+// настраиваем слежение за изменениями
+gulp.task('watch', function() {
+	// следим за папкой sprites. если есть изменения - запускаем задачу 'sprites'
+	gulp.watch(srcSprts+'*',        ['sprites']);
+	// следим за папкой images. если есть изменения - запускаем задачу 'images'
+	gulp.watch(srcImgs+'*',         ['compress']);
+	// следим за папкой stylus. если есть изменения - запускаем задачу 'stylus'
+	gulp.watch(srcStyl+'*.styl',    ['stylus']);
+});
+
+
+// оптимизация картинок
+gulp.task('compress', function() {
+	gulp.src(srcImgs+'*')
+			.pipe(imagemin({
+				progressive: true
+			}))
+			.pipe(gulp.dest(publImgs));
+});
 
 // генерим стилус
 gulp.task('stylus', function () {
 	// путь к главному файлу стилус в который будет все собираться
 	gulp.src(srcStyl+'main.styl')
-			// генерим
-			.pipe(stylus())
-			// выводим ошибки
-			.on('error', console.log)
-			// добавляем вендорные префиксы
-			.pipe(postcss([ autoprefixer({ browsers: [
-				'> 1%',
-				'last 2 versions',
-				'ie > 7',
-				'Firefox ESR',
-				'Opera 12.1'
-			] }) ]))
-			// выводим ошибки
-			.on('error', console.log)
-			// сохраняем готовый цсс
-			.pipe(gulp.dest(publCss));
+		// генерим
+		.pipe(stylus())
+		// добавляем вендорные префиксы
+		.pipe(postcss([ autoprefixer({ browsers: [
+			'> 1%',
+			'last 3 versions',
+			'ie > 7',
+			'Firefox ESR',
+			'Opera 12.1'
+		] }) ]))
+		// сохраняем готовый цсс
+		.pipe(gulp.dest(publCss));
 });
+
 
 // генерим спрайты
 gulp.task('sprites', function () {
 	// путь к папке где лежат иходные файлы из которых будет собираться спрайт
-	var spriteData = gulp.src(srcImgs+'sprites/*').pipe(spritesmith({
+	var spriteData = gulp.src(srcSprts+'*').pipe(spritesmith({
 		// имя итогового файла спрайта
 		imgName:     'sprite.png',
 		// формат файла в который будут генерироваться переменные с информацмей о спрайтах
@@ -61,29 +91,10 @@ gulp.task('sprites', function () {
 		}
 	}));
 	// сохраняем спрайт
-	spriteData.img.pipe(gulp.dest(publImgs));
+	spriteData.img.pipe(gulp.dest(srcImgs));
 	// сохраняем файл стилуса в который будут генерироваться переменные с информацмей о спрайтах
 	spriteData.css.pipe(gulp.dest(srcStyl));
 });
 
-// настраиваем слежение за изменениями
-gulp.task('watch', function() {
-	// следим за папкой sprites. если есть изменения - запускаем задачу 'sprites'
-	gulp.watch(srcImgs+'/sprites/*', ['sprites']);
-	// следим за папкой stylus. если есть изменения - запускаем задачу 'stylus'
-	gulp.watch(srcStyl+'*.styl',     ['stylus']);
-});
 
-// регестрируем задачи.
-// ВАЖНО
-// -----
-// порядок описывания задач задает порядок их запуска.
-// то есть при запуске гранта сперва отработает спрайт, потом стилус, потом запустится слежение.
-// в дальнейшем запуск задач будет зависить от очередности изменения описаных в 'watch'
-// к примеру - добавилась картинка в папке 'sprites'. запустилась задача 'sprites'.
-// в этой задаче есть перегенерация 'stylus'. соответственно после генерации запустится задача 'stylus'.
-gulp.task('default', [
-	'sprites',
-	'stylus',
-	'watch'
-]);
+
