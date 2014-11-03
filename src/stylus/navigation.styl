@@ -1,22 +1,22 @@
 
 
-.header__nav
+.navigation
 	margin: 0
 	clear: both
 	background: #c0c0c0
-.header__nav__ul
+.navigation__ul
 	margin: 0
 	padding: 0
 	list-style: none
 	height: 40px
 	border-left: 1px solid #000
-.header__nav__ul__li
+.navigation__ul__li
 	position: relative
 	float: left
 	border-right: 1px solid #000
-	&:hover .header__nav__sub
+	&:hover .navigation__submenu
 		display: block
-.header__nav__ul__li__a
+.navigation__ul__li__a
 	display: inline-block
 	padding: 0 20px
 	line-height: 40px
@@ -24,14 +24,14 @@
 	text-transform: uppercase
 	color: $colorText
 
-.header__nav__sub
+.navigation__submenu
 	display: none
 	position: absolute
-	font-size: 12px
 	left: 0
 	top: 40px
 	margin: 0
 	padding: 0
+	font-size: 12px
 	list-style: none
 	border: 1px solid #000
 	border-bottom: 0
