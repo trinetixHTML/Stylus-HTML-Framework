@@ -57,13 +57,16 @@ gulp.task('stylus', function () {
 	gulp.src(srcStyl+'main.styl')
 		// генерим
 		.pipe(stylus({
+			// минимизируем
 			compress: true,
+			// инициализируем карту
 			sourcemap: {
 				inline: true,
 				sourceRoot: '.',
 				basePath: publCss
 			}
 		}))
+		// строим карту
 		.pipe(sourcemaps.init({
 			loadMaps: true
 		}))
@@ -75,6 +78,7 @@ gulp.task('stylus', function () {
 			'Firefox ESR',
 			'Opera 12.1'
 		] }) ]))
+		// записываем карту
 		.pipe(sourcemaps.write('.', {
 			includeConent: false,
 			sourceRoot: '.'
