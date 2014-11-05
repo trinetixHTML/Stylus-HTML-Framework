@@ -74,13 +74,16 @@ gulp.task('stylus', function () {
 			loadMaps: true
 		}))
 		// добавляем вендорные префиксы
-		.pipe(postcss([opacity, autoprefixer({ browsers: [
-			'> 1%',
-			'last 3 versions',
-			'ie > 7',
-			'Firefox ESR',
-			'Opera 12.1'
-		] }) ]))
+		.pipe(postcss([
+			opacity,
+			autoprefixer({ browsers: [
+				'> 1%',
+				'last 3 versions',
+				'ie > 7',
+				'Firefox ESR',
+				'Opera 12.1'
+			] })
+		]))
 		// записываем карту
 		.pipe(sourcemaps.write('.', {
 			includeConent: false,
