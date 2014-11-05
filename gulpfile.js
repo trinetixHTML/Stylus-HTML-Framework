@@ -5,7 +5,8 @@ var     gulp         = require('gulp'),
 		spritesmith  = require('gulp.spritesmith'),
 		autoprefixer = require('autoprefixer-core'),
 		imagemin     = require('gulp-imagemin'),
-		minifyCSS    = require('gulp-minify-css');
+		sourcemaps = require('gulp-sourcemaps');
+//		minifyCSS    = require('gulp-minify-css');
 
 // переменные с путями
 // пути к исходным файлам из который будет собираться
@@ -56,7 +57,17 @@ gulp.task('stylus', function () {
 	// путь к главному файлу стилус в который будет все собираться
 	gulp.src(srcStyl+'main.styl')
 		// генерим
-		.pipe(stylus())
+		.pipe(stylus({
+			compress: true,
+			sourcemap: {
+				inline: true,
+				sourceRoot: '.',
+				basePath: publCss
+			}
+		}))
+		.pipe(sourcemaps.init({
+			loadMaps: true
+		}))
 		// добавляем вендорные префиксы
 		.pipe(postcss([ autoprefixer({ browsers: [
 			'> 1%',
@@ -65,11 +76,15 @@ gulp.task('stylus', function () {
 			'Firefox ESR',
 			'Opera 12.1'
 		] }) ]))
-		// минимизируем цсс
-		.pipe(minifyCSS())
+		.pipe(sourcemaps.write('.', {
+			includeConent: false,
+			sourceRoot: '.'
+		}))
 		// сохраняем готовый цсс
 		.pipe(gulp.dest(publCss));
 });
+
+
 
 
 // генерим спрайты
