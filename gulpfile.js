@@ -24,6 +24,7 @@ var publImgs = 'public/images/';
 
 
 
+
  // регестрируем задачи
  gulp.task('default', [
 	'watch',
@@ -73,7 +74,7 @@ gulp.task('stylus', function () {
 			loadMaps: true
 		}))
 		// добавляем вендорные префиксы
-		.pipe(postcss([ autoprefixer({ browsers: [
+		.pipe(postcss([opacity, autoprefixer({ browsers: [
 			'> 1%',
 			'last 3 versions',
 			'ie > 7',
@@ -120,4 +121,15 @@ gulp.task('sprites', function () {
 });
 
 
+// прозрачность для ие
+var opacity = function(css) {
+	css.eachDecl(function(decl, i) {
+		if (decl.prop === 'opacity') {
+			decl.parent.insertAfter(i, {
+				prop: '-ms-filter',
+				value: '"progid:DXImageTransform.Microsoft.Alpha(Opacity=' + (parseFloat(decl.value) * 100) + ')"'
+			});
+		}
+	});
+};
 
