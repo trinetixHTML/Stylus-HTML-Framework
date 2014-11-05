@@ -6,7 +6,6 @@ var     gulp         = require('gulp'),
 		autoprefixer = require('autoprefixer-core'),
 		imagemin     = require('gulp-imagemin'),
 		sourcemaps = require('gulp-sourcemaps');
-//		minifyCSS    = require('gulp-minify-css');
 
 // переменные с путями
 // пути к исходным файлам из который будет собираться
