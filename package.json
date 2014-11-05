@@ -1,6 +1,6 @@
 {
 	"name": "template",
-	"version": "0.2.7",
+	"version": "0.2.8",
 	"author": "shnapsus",
 	"devDependencies": {
 		"gulp": "~3.8.8",
@@ -10,6 +10,7 @@
 		"autoprefixer-core": "~3.1.1",
 		"gulp.spritesmith": "~1.4.0",
 		"gulp-imagemin": "~1.2.1",
-		"gulp-sourcemaps": "~1.2.7"
+		"gulp-sourcemaps": "~1.2.7",
+		"gulp-newer": "~0.3.0"
 	}
 }

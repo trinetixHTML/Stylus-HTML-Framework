@@ -5,7 +5,8 @@ var     gulp         = require('gulp'),
 		spritesmith  = require('gulp.spritesmith'),
 		autoprefixer = require('autoprefixer-core'),
 		imagemin     = require('gulp-imagemin'),
-		sourcemaps = require('gulp-sourcemaps');
+		newer        = require('gulp-newer'),
+		sourcemaps   = require('gulp-sourcemaps');
 
 // переменные с путями
 // пути к исходным файлам из который будет собираться
@@ -45,6 +46,7 @@ gulp.task('watch', function() {
 // оптимизация картинок
 gulp.task('compress', function() {
 	gulp.src(srcImgs+'*')
+			.pipe(newer(publImgs))
 			.pipe(imagemin({
 				progressive: true
 			}))
