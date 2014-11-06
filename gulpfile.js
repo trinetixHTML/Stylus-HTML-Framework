@@ -124,6 +124,14 @@ gulp.task('sprites', function () {
 });
 
 
+function rgba2hex(rgba) {
+	rgba = rgba.match(/^rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d*\.\d+)\)$/);
+	function hex(x) {
+		return ("0" + parseInt(x).toString(16)).slice(-2);
+	}
+	return "#" + (rgba[4]*100) + hex(rgba[1]) + hex(rgba[2]) + hex(rgba[3]);
+}
+
 // прозрачность для ие
 var opacity = function(css) {
 	css.eachDecl(function(decl, i) {
@@ -132,6 +140,17 @@ var opacity = function(css) {
 				prop: '-ms-filter',
 				value: '"progid:DXImageTransform.Microsoft.Alpha(Opacity=' + (parseFloat(decl.value) * 100) + ')"'
 			});
+		}
+		if (decl.prop === 'background-color') {
+			var str = decl.value;
+			if(str.indexOf('rgba(') + 1) {
+				var tmp = str.replace('rgba(', '').split(',');
+				var colorHex = rgba2hex(str);
+				decl.parent.insertAfter(i, {
+					prop: '-ms-filter',
+					value: '"progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=\''+colorHex+'\', EndColorStr=\''+colorHex+'\')"'
+				});
+			}
 		}
 	});
 };
