@@ -124,6 +124,7 @@ gulp.task('sprites', function () {
 });
 
 
+// прозрачность для ие
 function rgba2hex(rgba) {
 	rgba = rgba.match(/^rgba\((\d+),\s*(\d+),\s*(\d+),\s*(\d*\.\d+)\)$/);
 	function hex(x) {
@@ -131,8 +132,6 @@ function rgba2hex(rgba) {
 	}
 	return "#" + (rgba[4]*100) + hex(rgba[1]) + hex(rgba[2]) + hex(rgba[3]);
 }
-
-// прозрачность для ие
 var opacity = function(css) {
 	css.eachDecl(function(decl, i) {
 		if (decl.prop === 'opacity') {
