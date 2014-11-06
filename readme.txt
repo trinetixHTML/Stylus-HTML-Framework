@@ -88,8 +88,8 @@
 -------------------------------------------------------------------------------------------
 6. минимизируем css стилусом
 7. sourcemaps строим с помощью - https://github.com/floridoo/gulp-sourcemaps 
-8. прозрачность для ие не пишем. пишем просто - opacity: 0.50; постцсс сам добавит - -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"
-или background-color: rgba(#ffffff,0.78)
+8. прозрачность для ие не пишем. пишем просто - opacity: 0.50 или background-color: rgba(#ffffff,0.78) постцсс сам добавит остальное
+
 
 
 
