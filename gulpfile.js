@@ -144,7 +144,6 @@ var opacity = function(css) {
 		if (decl.prop === 'background-color') {
 			var str = decl.value;
 			if(str.indexOf('rgba(') + 1) {
-				var tmp = str.replace('rgba(', '').split(',');
 				var colorHex = rgba2hex(str);
 				decl.parent.insertAfter(i, {
 					prop: '-ms-filter',
