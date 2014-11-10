@@ -16,7 +16,7 @@ var srcStyl  = 'src/stylus/';
 var srcImgs  = 'src/images/';
 // спрайты
 var srcSprts  = 'src/sprites/';
-// пути к финальным вайлам
+// пути к финальным файлам
 // цсс
 var publCss  = 'public/css/';
 // картинки
@@ -25,7 +25,7 @@ var publImgs = 'public/images/';
 
 
 
- // регестрируем задачи
+ // регистрируем задачи
  gulp.task('default', [
 	'watch',
 	'sprites',
@@ -73,9 +73,10 @@ gulp.task('stylus', function () {
 		.pipe(sourcemaps.init({
 			loadMaps: true
 		}))
-		// добавляем вендорные префиксы
 		.pipe(postcss([
+			// подставляем прозрачность для ие
 			opacity,
+			// добавляем вендорные префиксы
 			autoprefixer({ browsers: [
 				'> 1%',
 				'last 3 versions',
