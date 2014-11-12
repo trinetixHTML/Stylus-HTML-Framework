@@ -89,6 +89,12 @@
 6. минимизируем css стилусом
 7. sourcemaps строим с помощью - https://github.com/floridoo/gulp-sourcemaps 
 8. прозрачность для ие не пишем. пишем просто - opacity: 0.50 или background-color: rgba(#ffffff,0.78) постцсс сам добавит остальное
+9. на тэг html автоматически добавляются классы в зависимости от устройства, оси, браузера
+	desktop/mobile/tablet
+	windows/ios/iphone/ipad/ipod/android/blackberry/fxos
+	landscape/portait
+	chrome/ie/firefox/safari/opera
+	v38.0 
 
 
 
