@@ -6,7 +6,6 @@ $(document).ready(function () {
 	else if (bowser.safari) { $('html').addClass('safari');}
 	else if (bowser.opera) {  $('html').addClass('opera');}
 	else if (bowser.msie) {   $('html').addClass('ie');}
-	$('html').addClass('v' + bowser.version);
-
+	$('html').addClass('v' + bowser.version.split('.')[0]);
 
 });
